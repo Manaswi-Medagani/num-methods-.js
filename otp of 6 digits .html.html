@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function convertTo12HourFormat(time24) {
+    
+    let [hours, minutes] = time24.split(':').map(Number);
+
+    const suffix = hours >= 12 ? 'PM' : 'AM';
+
+   
+    hours = hours % 12 || 12; 
+
+
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+  
+    return `${hours}:${minutes} ${suffix}`;
+}
+
+console.log(convertTo12HourFormat("14:30")); // Output: "2:30 PM"
+console.log(convertTo12HourFormat("09:15")); // Output: "9:15 AM"
+console.log(convertTo12HourFormat("00:00")); // Output: "12:00 AM"
+console.log(convertTo12HourFormat("12:45")); // Output: "12:45 PM"
+
+    </script>
+</body>
+</html>
